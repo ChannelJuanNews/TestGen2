@@ -1,0 +1,25 @@
+{
+  "name": "testgen2",
+  "description": "A simple test bank genarator for professors who are lazy",
+  "main": "server.js",
+  "authors": [
+    "Juan G Ruelas Jr (www.ruelas.me)"
+  ],
+  "license": "MIT",
+  "keywords": [
+    "Test",
+    "Bank",
+    "JavaScript"
+  ],
+  "homepage": "",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+    "Materialize": "materialize#^0.97.6"
+  }
+}
