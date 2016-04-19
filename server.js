@@ -2,7 +2,7 @@
 /*These are also all our dependencies for our application*/
 var express = require('express');
 var app = express();
-var port = process.env.PORT || 8080;
+var port = process.env.PORT || 8082;
 var mongoose = require('mongoose');
 var passport = require('passport');
 var flash = require('express-flash');
