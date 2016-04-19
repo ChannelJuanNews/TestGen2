@@ -30,7 +30,7 @@ app.use(express.static('bower_components'));
 app.set('view engine', 'ejs');
 
 app.use(expressSession({
-  cookie : {maxAge : 60000},
+  cookie : { maxAge : 60000 },
   store  : sessionStore,
   secret : 'zybooks',
   resave : true,
@@ -38,18 +38,17 @@ app.use(expressSession({
 }));
 app.use(flash());
 
+/*
 app.use(function(req, res, next){
     // if there's a flash message in the session request, make it available in the response, then delete it
     res.locals.sessionFlash = req.session.sessionFlash;
     delete req.session.sessionFlash;
     next();
 });
-
+*/
 
 app.use(passport.initialize());
 app.use(passport.session());
-
-
 
 require('./config/passport')(passport) // this configures passport
 require('./app/routes.js')(app, passport) // this configures our routes

@@ -3,10 +3,10 @@ var bcrypt = require('bcrypt-nodejs');
 
 var userSchema = mongoose.Schema({
   local   : {
-      email    : { required: true, type : String, unique : true },
-      password : { required : true, type: String }
-
-  }
+      email    : { required : true, type : String, unique : true },
+      password : { required : true, type : String },
+  },
+  isAdmin  : { type : Boolean}
 });
 
 userSchema.methods.generateHash = function(password) {

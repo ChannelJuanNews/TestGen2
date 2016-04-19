@@ -33,6 +33,31 @@ module.exports = function(app, passport) {
       failureRedirect : '/',
       failureFlash : true
     }));
+
+    app.get('/loadquestions', isLoggedIn, isAdmin, function(req, res){
+      // load all questions from gdocs
+    })
+
+    /*question retrieval and creation*/
+    app.get('/questions', isLoggedIn, isAdmin, function(req, res){
+      // see all questions
+    })
+    app.post('/questions', isLoggedIn, isAdmin, function(req, res){
+      //create question
+    })
+
+    /*Singular quetsion retrieal, creation and deletion*/
+    app.get('/questions/:id', isLoggedIn, isAdmin, function(req, res){
+      // see just one questions
+    })
+    app.delete('/questions/:id', isLoggedIn, isAdmin, function(req, res){
+      // delete a question
+    })
+    app.put('/questions/:id', isLoggedIn, isAdmin, function(req, res){
+      // update a questions
+    })
+
+
 };
 
 // route middleware to make sure a user is logged in
@@ -43,7 +68,9 @@ function isLoggedIn(req, res, next) {
     res.redirect('/');
 }
 
-
 function isAdmin(req, res, next) {
-  return false;
+  if (req.isAdmin){
+    return next();
+  }
+  res.redirect('/')
 }
