@@ -1,6 +1,7 @@
 // app/routes.js
 module.exports = function(app, passport) {
 
+    /*All  our get routes*/
     app.get('/', function(req, res) {
         res.render('index.ejs'); // load the index.ejs file
     });
@@ -11,10 +12,27 @@ module.exports = function(app, passport) {
         });
     });
 
+    app.get('/login')
+
     app.get('/logout', function(req, res) {
         req.logout();
         res.redirect('/');
     });
+
+
+    /*All our post routes*/
+    app.post('/signup', passport.authenticate('local-signup', {
+      successRedirect : '/profile',
+      failureRedirect : '/',
+      failureFlash : true
+    }));
+
+    app.post('/login', passport.authenticate('local-login', {
+      successRedirect : '/profile',
+      failureRedirect : '/',
+      failureFlash : true
+    }));
+
 };
 
 // route middleware to make sure a user is logged in
@@ -26,4 +44,8 @@ function isLoggedIn(req, res, next) {
 
     // if they aren't redirect them to the home page
     res.redirect('/');
+}
+
+function isAdmin(req, res, next) {
+  return false;
 }

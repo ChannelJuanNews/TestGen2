@@ -1,0 +1,17 @@
+.zy-orange{
+  background-color: #CC6600;
+}
+.zy-blue {
+  background-color: #576E91;
+}
+
+.zy-color-orange{
+  color: #CC6600;
+}
+.zy-color-blue{
+  color: #576E91;
+}
+
+.signup-button:hover{
+  background-color: #576E91;
+}

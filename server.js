@@ -13,7 +13,11 @@ var bodyParser = require('body-parser');
 var expressSession = require('express-session');
 var db = require('./config/database.js');
 
-mongoose.connect(db.url, function(){
+mongoose.connect(db.url, function(err){
+  if (err){
+    console.log(err);
+
+  }
   console.log('connected to mongoose');
 })
 
